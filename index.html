@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAY LUDO</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+ }
+
+body{
+    background: url('back.gif') no-repeat center center/cover;
+    height: 100%;
+}
+
+.contaiener{
+    margin: auto;
+    text-align: center;
+}
+
+.dice{
+    text-align: center;
+    margin: 13px;
+}
+
+h1{
+    margin: 13px;
+    text-shadow: 2px 2px white;
+    font-size: 2rem;
+    color: #f6b93b;
+    text-align: center;
+}
+h3{
+    margin: 13px;
+    text-shadow: 1px 1px white;
+    font-size: 1.5rem;
+    color: #3bf68f;
+    text-align: center; 
+}
+p{  
+    color: skyblue;
+    font-size: 2rem;
+    text-shadow: 1px 1px white;
+    margin: 13px;
+}
+
+button{
+    padding: 10px;
+    background-color: #0b032b;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    text-align: center;
+}
+.btn{
+    text-align: center;
+}
+
+img{
+    width: 12%;
+}
+
+@media only screen and (max-width: 850px){
+
+body{
+        height: 100%;
+}
+img{
+    width: 50%; 
+}
+}
+    </style>
+
+</head>
+
+<body>
+
+    
+    <div class="container">
+        <h1>PLAY LUDO</h1>
+
+        <h3>Guss who will win now?</h3>
+
+        <div class="dice">
+            <span class="check1">
+            <p>Front Bencher's</p>
+            <img src="dice1.png" id="check1">
+            </span>
+        </div>
+
+        <div class="dice">
+            <span class="check2">
+            <p>Back Bencher's</p>
+            <img src="dice1.png" id="check2">
+            </span>
+        </div>
+    </div>
+    <div class="btn">
+    <button onclick="ludogame()">CLICK ME</button>
+    </div>
+
+    <script>
+        ludogame = () =>{
+        const megh1 = Math.floor(Math.random()*6 ) + 1 ;
+        const player1Dice = `dice${megh1}.png`;
+        document.getElementById('check1').setAttribute('src',player1Dice);
+      
+        const megh2 = Math.floor(Math.random()*6 ) + 1 ;
+        const player2Dice = `dice${megh2}.png`;
+        document.getElementById('check2').setAttribute('src',player2Dice);
+
+        if(megh1 > megh2) {
+            document.querySelector('h1').innerHTML="Front Bencher's won"
+        }
+        else if(megh1 < megh2) {
+            document.querySelector('h1').innerHTML="Back Bencher's won"
+        }
+        else{
+            document.querySelector('h1').innerHTML="Match Draw"
+        }
+    }
+    </script>
+</body>
+
+</html>
